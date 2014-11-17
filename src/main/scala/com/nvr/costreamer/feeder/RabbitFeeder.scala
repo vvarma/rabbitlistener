@@ -20,7 +20,7 @@ class RabbitFeeder(val config: RabbitFeederConfig) extends Feeder {
   def listen() {
     val channel = connection.createChannel()
     channel.exchangeDeclare(config.exchange, "direct", true)
-    channel.queueDeclare(config.queue, true, true, true, null)
+    channel.queueDeclare(config.queue, true, false, false, null)
     channel.queueBind(config.queue, config.exchange, "")
     println("Waiting for messages. on queue :" + config.queue)
     val consumer = new QueueingConsumer(channel)

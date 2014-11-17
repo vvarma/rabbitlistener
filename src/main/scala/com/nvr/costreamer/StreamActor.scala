@@ -33,7 +33,6 @@ class StreamActor(config:FeederConfig) extends Actor with ActorHelper {
       sender ! UnsubscribeFeeder
     // stop stream
     case jsonCo =>
-      println("Stored")
       store(jsonCo)
   }
 }

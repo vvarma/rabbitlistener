@@ -28,7 +28,7 @@ class RabbitProducerActor(val config: RabbitFeederConfig, feederConfig: FeederCo
   }
   val channel = connection.createChannel()
   channel.exchangeDeclare(config.exchange, "direct", true)
-  channel.queueDeclare(config.queue, true, true, true, null)
+  channel.queueDeclare(config.queue, true, false, false, null)
   channel.queueBind(config.queue, config.exchange, "")
 
   def pushToRMQ(json: String) {
