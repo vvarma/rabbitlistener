@@ -12,6 +12,8 @@ class BayesianCoStream(val coStreamer: CoStreamer) {
 
   val bayesAddressStream = coStream.map(co => (co.accountId, co)).groupByKey()
 
+  
+//  coStream.flatMap(co=>co.categoryNodeIds).foreachRDD(rdd=>rdd.foreach(cNodeId=>))
   /*bayesAddressStream.map(tup => {
     val addrs = for (co <- tup _2) yield co.addressId
     (tup _1, BayesModel.getDistribution(addrs))
@@ -30,12 +32,7 @@ class BayesianCoStream(val coStreamer: CoStreamer) {
   })
 
   modelStream.saveAsObjectFiles("hdfs://localhost:54310/checkout/mr/mod", "like")
-  modelStream.foreachRDD(modelRdd=>{
-    
-    modelRdd.foreach(model=>{
 
-    })
-  })
 
 
 

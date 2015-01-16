@@ -31,7 +31,7 @@ class CoStreamer(val ssc: StreamingContext) extends Serializable {
 
   updatedIdToJsonMap.saveAsTextFiles("hdfs://localhost:54310/checkout/co/", ".co")
 
-
+  val stream= ssc.fileStream()
 }
 
 object StreamerUtils {

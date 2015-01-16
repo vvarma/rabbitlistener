@@ -5,6 +5,6 @@ package com.nvr.costreamer.feeder
  */
 class FeederConfig extends Serializable
 
-class CoFeederConfig(val fileName: String) extends FeederConfig
+class zCoFeederConfig(val fileName: String) extends FeederConfig
 
 class RabbitFeederConfig(val host: String, val exchange: String, val queue: String) extends FeederConfig
